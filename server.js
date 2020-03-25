@@ -2,12 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan")
 const app = express();
-const path = require('path'); 
+const path = require('path');
+
 
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 
-
+require('dotenv').config()
 
 db = mongoose.connection;
 
