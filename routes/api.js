@@ -1,16 +1,14 @@
 const express = require("express");
-const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
-let db = require("../models");
-let Workout = require("../models/workout");
+const Workout = require("../models/workout");
 let mongoJs = require("mongojs");
 
 module.exports = (app) => {
 
 
     app.get("/api/workouts", (req, res)=>{
-        db.Workout.find({}, (err, data)=>{
+        Workout.find({}, (err, data)=>{
             if(err) throw err;
             res.send(data);
         })
