@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 5000;
 
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 
-const MONGODB_URI = 'mongodb+srv://Robin:juanita1@workoutplan-cxiwb.mongodb.net/test?retryWrites=true&w=majority'
-
+// const MONGODB_URI = 'mongodb+srv://Robin:juanita1@workoutplan-cxiwb.mongodb.net/test?retryWrites=true&w=majority'
+// const mongodb = process.env.MONGODB_URI || "mongodb://localhost/workout";
 db = mongoose.connection;
 
 db.once('open', () => {
@@ -28,7 +28,7 @@ app.use(logger("dev"));
 
 app.use(express.static("public"));
 
-mongoose.connect(MONGODB_URI || 'mongodb://localhost/workout', {useNewUrlParser:true});
+mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/workout', {useNewUrlParser:true});
 
 // routes
 require("./routes/api")(app);
