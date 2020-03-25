@@ -6,9 +6,10 @@ const path = require('path');
 
 
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 
-require('dotenv').config()
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+
+const MONGODB_URI = 'mongodb+srv://Robin:juanita1@workoutplan-cxiwb.mongodb.net/test?retryWrites=true&w=majority'
 
 db = mongoose.connection;
 
@@ -27,7 +28,7 @@ app.use(logger("dev"));
 
 app.use(express.static("public"));
 
-mongoose.connect(MONGODB_URI, {useNewUrlParser:true});
+mongoose.connect(MONGODB_URI || 'mongodb://localhost/workout', {useNewUrlParser:true});
 
 // routes
 require("./routes/api")(app);
