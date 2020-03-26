@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const Workout = require("../models/workout");
+const workout = require("../models/workout");
 let mongoJs = require("mongojs");
 
 module.exports = (app) => {
