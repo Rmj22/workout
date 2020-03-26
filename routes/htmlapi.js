@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 let db = require("../models");
-let workout = require("../models/workout");
+let Workout = require("../models/workout");
 let mongoJs = require("mongojs");
 
 module.exports = (app) => {
