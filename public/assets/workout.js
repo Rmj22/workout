@@ -45,6 +45,7 @@ function formatDate(date) {
 }
 
 function renderWorkoutSummary(summary) {
+  console.log(summary)
   const container = document.querySelector(".workout-stats");
 
   const workoutKeyMap = {
@@ -71,14 +72,14 @@ function renderWorkoutSummary(summary) {
   });
 }
 
-function renderNoWorkoutText() {
-  const container = document.querySelector(".workout-stats");
-  const p = document.createElement("p");
-  const strong = document.createElement("strong");
-  strong.textContent = "You have not created a workout yet!"
+// function renderNoWorkoutText() {
+//   const container = document.querySelector(".workout-stats");
+//   const p = document.createElement("p");
+//   const strong = document.createElement("strong");
+//   strong.textContent = "You have not created a workout yet!"
 
-  p.appendChild(strong);
-  container.appendChild(p);
-}
+//   p.appendChild(strong);
+//   container.appendChild(p);
+// }
 
 initWorkout();
