@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 
-// const MONGODB_URI = 'mongodb+srv://Robin:juanita1@workoutplan-cxiwb.mongodb.net/test?retryWrites=true&w=majority'
+const MONGODB_URI = 'mongodb+srv://Robin:juanita1@workoutplan-cxiwb.mongodb.net/test?retryWrites=true&w=majority'
 // const mongodb = process.env.MONGODB_URI || "mongodb://localhost/workout";
 db = mongoose.connection;
 
