@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 // Assign port
 const PORT = process.env.PORT || 3500;
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://kanyesworkout:juanita1@ds249717.mlab.com:49717/heroku_90fbb3l3";
 
 db = mongoose.connection;
 
