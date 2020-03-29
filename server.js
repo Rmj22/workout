@@ -29,8 +29,8 @@ app.use(express.static("public"));
 app.use(logger("dev"));
 
 // Requiring routes
-require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
+require("./routes/api-routes")(app);
+require("./routes/html-route")(app);
 
 mongoose.connect(MONGODB_URI, {useNewUrlParser:true});
 
