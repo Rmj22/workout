@@ -37,8 +37,8 @@ module.exports = (app) => {
 
     app.put("/api/workouts/:id", ({body,params}, res)=>{
         console.log("POSTED");
-        console.log(req.body);
-        console.log("ID " + req.params.id);
+        // console.log(req.body);
+        // console.log("ID " + req.params.id);
        Workout.findByIdAndUpdate(
           params.id,
           {$push:{exercises:body}},
