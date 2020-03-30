@@ -8,12 +8,12 @@ module.exports = (app) => {
 
 
     app.get("/api/workouts", (req, res)=>{
-        Workout.find({}, (err, data)=>{
-            if(err) throw err;
-            res.send(data);
+        Workout.find().then(dbworkout => {
+            res.json(dbworkout)
+        }).catch(err=>{
+            res.json(err)
         })
     })
-
     app.get("/api/workouts/range", (req, res)=>{
         Workout.find({})
         .then((data)=>{
@@ -26,40 +26,28 @@ module.exports = (app) => {
 
     app.post("/api/workouts", (req, res)=>{
         console.log("POST")
-        Workout.create(req.body)
-        .then((workoutData)=>{
+        Workout.create({})
+        .then(workoutData=>{
             res.json(workoutData)
         })
-        .catch((err)=>{
-            res.status(400).json(err)
+        .catch( err=>{
+            res.json(err)
         })
     })
 
-    app.put("/api/workouts/:id", (req, res)=>{
+    app.put("/api/workouts/:id", ({body,params}, res)=>{
         console.log("POSTED");
         console.log(req.body);
         console.log("ID " + req.params.id);
-
-        Workout.update(
-            {_id:(req.params.id)},
-            {
-                $push:{
-                    exercises:{
-                        type:req.body.type,
-                        name:req.body.name,
-                        duration:req.body.duration,
-                        weight:req.body.weight,
-                        reps:req.body.reps,
-                        sets:req.body.sets,
-                        distance: req.body.distance
-                    }
-                }
-            })
-            .then(workoutData=>{
-                res.json(workoutData)
-            })
-            .catch(err=>{
-                res.status(400).json(err)
-            })
+       Workout.findByIdAndUpdate(
+          params.id,
+          {$push:{exercises:body}},
+          {new:true, runValidators:true}
+       ).then(dbworkout =>{
+           res.json(dbworkout)
+       }).catch( err => {
+           res.json(err)
+       })
+        
     })
 }
