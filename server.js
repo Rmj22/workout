@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3500;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://kanyesworkout:juanita1@ds249717.mlab.com:49717/heroku_90fbb3l3";
 
-db = mongoose.connection;
+ const db = mongoose.connect(MONGODB_URI, {useNewUrlParser:true});
 
 
 db.once('open', () => {
@@ -32,7 +32,7 @@ app.use(logger("dev"));
 require("./routes/api-routes")(app);
 require("./routes/html-route")(app);
 
-mongoose.connect(MONGODB_URI, {useNewUrlParser:true});
+// mongoose.connect(MONGODB_URI, {useNewUrlParser:true});
 
 
 app.listen(PORT, () => {
