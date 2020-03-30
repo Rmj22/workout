@@ -12,14 +12,14 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://kanyesworkout:juanita1
  const db = mongoose.connect(MONGODB_URI, {useNewUrlParser:true});
 
 
-db.once('open', () => {
-    console.log('Connected to MongoDB');
-})
+// db.once('open', () => {
+//     console.log('Connected to MongoDB');
+// })
 
-//check for any db errors
-db.on('error', (err) => {
-    console.log(err)
-});
+// //check for any db errors
+// db.on('error', (err) => {
+//     console.log(err)
+// });
 
 
 //Set up middleware
