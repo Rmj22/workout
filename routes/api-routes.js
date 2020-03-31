@@ -17,9 +17,11 @@ module.exports = (app) => {
     app.get("/api/workouts/range", (req, res)=>{
         Workout.find({})
         .then((data)=>{
+            console.log(data)
             res.json(data)
         })
         .catch((err)=>{
+            console.log(err)
             res.json(err)
         })
     })
